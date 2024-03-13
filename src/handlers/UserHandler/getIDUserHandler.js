@@ -9,7 +9,7 @@ const getIDUserHandler = async (req, res) => {
     try {
         const user = await getIdUserController(id);
         if (!user) {
-            return  response(res, 400, null, "No se encontro el usuario")
+            return  response(res, 400, null, "User not found")
         }
         response(res, 200, user);
     } catch (error) {

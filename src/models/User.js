@@ -11,25 +11,25 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      apellido: {
+      lastName: {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      mail: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
       },
-      contraseña: {
+      password: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
       },
-      rol: {
+      role: {
         type: DataTypes.ENUM('Admin', 'User'),
         allowNull: false,
       },

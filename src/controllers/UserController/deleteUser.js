@@ -1,16 +1,15 @@
 const { User } = require("../../db.js");
-const { response } = require("../../utils");
 
 const deleteUserController = async (id) => {
   const userDelete = await User.findByPk(id);
   if (!userDelete) {
-      return null; // No se encontró el Usere
+      return null; // User not found
   }
   const deletedUser = { ...userDelete.toJSON()}; 
 
   await userDelete.destroy(); 
 
-  const message = `Se eliminó el usuario: ${deletedUser.nombre}`; 
+  const message = `User deleted: ${deletedUser.name}`; 
   return { message, deletedUser }; 
 };
 

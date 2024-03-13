@@ -8,7 +8,7 @@ const deleteUserHandler = async (req, res) => {
     const result = await deleteUserController(id);
 
     if (!result) {
-        response(res, 400, null, "Usuario no encontrado");
+        response(res, 400, null, "User not found");
     } else {
         response(res, 200, result);
     }

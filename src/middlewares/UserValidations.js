@@ -1,26 +1,58 @@
 const { ClientError } = require("../utils/errors");
 
+// Función para validar si una contraseña es segura.
+function isPasswordSecure(password) {
+    // Verificar longitud mínima
+    if (password.length < 8) {
+        return false;
+    }
+
+    // Verificar al menos una letra minúscula y una mayúscula.
+    if (!/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
+        return false;
+    }
+
+    // Verificar al menos un número.
+    if (!/\d/.test(password)) {
+        return false;
+    }
+
+    // Verificar al menos un carácter especial.
+    if (!/[!@#$%^&*()_+[\]{};':"\\|,.<>/?]/.test(password)) {
+        return false;
+    }
+
+    return true;
+}
+
 module.exports = (req, res, next) => {
     const {   
-        nombre, 
-        mail, 
-        contraseña, 
-        rol
+        name,
+        lastName,
+        email,
+        password,
+        role
     } = req.body;
 
-    // Expresión regular para validar una dirección de correo electrónico
+    // Expresión regular para validar una dirección de correo electrónico.
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nombre && mail && contraseña && rol) {
-        if (!emailRegex.test(mail)) {
-            throw new ClientError("El campo 'mail' no es una dirección de correo electrónico válida", 400);
+    if (name && lastName && email && password && role) {
+        if (!emailRegex.test(email)) {
+            throw new ClientError("The 'email' field is not a valid email address", 400);
         }
-        if (rol === "Admin" || rol === "SuperAdmin") {
+
+        // Verificar seguridad de la contraseña
+        if (!isPasswordSecure(password)) {
+            throw new ClientError("The password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character", 400);
+        }
+
+        if (role === "Admin" || role === "User") {
             next(); 
         } else {
-            throw new ClientError("El campo 'rol' debe ser 'Admin' o 'SuperAdmin'", 400);
+            throw new ClientError("The 'role' field must be 'Admin' or 'User'", 400);
         }
     } else {
-        throw new ClientError("Error en los datos del usuario", 401);
+        throw new ClientError("Error in user data", 401);
     }
 };

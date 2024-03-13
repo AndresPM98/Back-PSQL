@@ -1,18 +1,20 @@
 const { User } = require("../../db.js");
 
 const postUserController = async (
-  nombre, 
-  mail, 
-  contraseña, 
-  rol
-  ) => {
-    const newUser = await User.create({
-      nombre, 
-      mail, 
-      contraseña, 
-      rol
-    });
-    return newUser  ;
-  };
+  name,
+  lastName,
+  email,
+  password,
+  role
+) => {
+  const newUser = await User.create({
+    name,
+  lastName,
+  email,
+  password,
+  role
+  });
+  return newUser;
+};
 
- module.exports={postUserController}
+module.exports = { postUserController }

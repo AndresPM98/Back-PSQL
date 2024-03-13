@@ -5,18 +5,20 @@ const {
 
 const postUserHandler = async (req, res) => {
   const {
-    nombre, 
-    mail, 
-    contraseña, 
-    rol
+    name,
+    lastName,
+    email,
+    password,
+    role
   } = req.body;
 
 
   const newUser = await postUserController(
-    nombre, 
-    mail, 
-    contraseña, 
-    rol
+    name,
+    lastName,
+    email,
+    password,
+    role
   );
 
   response(res, 201, newUser)

@@ -5,7 +5,7 @@ const getUserHandler = async (req, res) => {
     try {
         const users = await getUserController();
         if (users.length === 0) {
-            response(res, 400, null, "No hay usuarios registrados");
+            response(res, 400, null, "No registered users");
         } else {
             response(res, 200, users);
         }
