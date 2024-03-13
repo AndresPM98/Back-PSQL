@@ -5,6 +5,7 @@ const UserRouter = Router();
 
 UserRouter.get("/", handlers.getUserHandler);
 UserRouter.get("/:id", handlers.getIDUserHandler);
+UserRouter.get("/sorted", handlers.getAllUsersSortedHandler);
 UserRouter.delete("/:id", handlers.deleteUserHandler);
 UserRouter.post("/", middlewares.UserValidations,handlers.postUserHandler);
 UserRouter.put("/:id", handlers.putUserHandler);
