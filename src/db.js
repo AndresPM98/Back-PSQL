@@ -23,9 +23,10 @@ const modelDefiners = [];
 // Se filtran los archivos que empiezan con un punto. 
 // Asegura que el archivo actual no sea el archivo base.
 // Selecciona solo los archivos con extensión JavaScript.
-    (file) =>     
+
 fs.readdirSync(path.join(__dirname, "/models"))
-  .filter(        
+  .filter(
+    (file) =>
       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
   )
   .forEach((file) => {
@@ -51,8 +52,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-/* const {User, Client} = sequelize.models;
-
+const { User } = sequelize.models;
+/* 
 User.hasMany(Client, { foreignKey: 'user_Id' }); //Relacion entre Modelos de uno a muchos mediante id del User.
 Client.belongsTo(User, { foreignKey: 'user_Id' }); */
 

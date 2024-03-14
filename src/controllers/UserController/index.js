@@ -1,7 +1,7 @@
 const { postUserController } = require("./postUser");
 const { deleteUserController } = require("./deleteUser");
 const { getIdUserController } = require("./getIdUser");
-const { getUserController } = require("./getUser");
+const { getAllUsersController } = require("./getAllUsers");
 const { getAllUsersSortedController } = require("./getAllUsersSorted");
 const { putUserController } = require("./putUser");
 const { patchUserController } = require("./patchUser");
@@ -12,7 +12,7 @@ module.exports = {
     postUserController, 
     deleteUserController, 
     getIdUserController, 
-    getUserController, 
+    getAllUsersController, 
     getAllUsersSortedController,
     putUserController,
     patchUserController, 
