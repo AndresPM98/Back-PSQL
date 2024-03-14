@@ -11,10 +11,10 @@ const authenticationUserController = async (email, password) => {
         const userFound = await User.findOne({
             where: { email: lowerCaseMail }
         });
-        if (!userFound) return { status: 400, data: { message: "User not found" } };
+        if (!userFound) return { status: 400, data: { message: "Email not found" } };
 
         const isMatch = await bcrypt.compare(password, userFound.password)
-        if (!isMatch) return { status: 400, data: { message: "Invalid credential" } };
+        if (!isMatch) return { status: 400, data: { message: "Invalid password" } };
 
         const token = await createAccessToken({ id: userFound.id })
         const rol = userFound.rol
