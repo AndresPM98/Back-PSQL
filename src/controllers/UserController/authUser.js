@@ -2,7 +2,7 @@ const { User } = require('../../db.js');
 const bcrypt = require('bcrypt');
 const { createAccessToken } = require('../../middlewares/jwtoken.js');
 
-// Función para autenticar al usuario
+// Controlador para autenticar al usuario
 const authenticationUserController = async (email, password) => {
     try {
         // Convertir el email a minúsculas para evitar errores de capitalización

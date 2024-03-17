@@ -1,8 +1,9 @@
 const { User } = require('../../db.js');
 
+// Controlador para obtener todos los usuarios ordenados por su nombre en orden alfabético
 const getAllUsersSortedController = async () => {
     try {
-        // Consulta todos los usuarios y los ordena por su nombre en orden alfabético
+        // Obtener todos los usuarios de la base de datos
         const allUsers = await User.findAll({
             order: [
                 ['name', 'ASC'] // Ordenar por nombre en orden ascendente (alfabético)

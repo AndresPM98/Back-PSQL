@@ -1,8 +1,9 @@
 const { User } = require("../../db.js");
 
+// Controlador para obtener todos los usuarios
 const getAllUsersController = async () => {
     try {
-        // Obtener todos los usuarios
+        // Obtener todos los usuarios de la base de datos
         const allUsers = await User.findAll();
 
         // Obtener la cantidad total de usuarios

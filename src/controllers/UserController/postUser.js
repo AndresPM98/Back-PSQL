@@ -1,6 +1,7 @@
 const { User } = require('../../db.js');
 const bcrypt = require('bcrypt');
 
+// Controlador para crear un usuario
 const postUserController = async (
   name,
   lastName,
