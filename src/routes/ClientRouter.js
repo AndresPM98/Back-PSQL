@@ -8,7 +8,7 @@ ClientRouter.get("/", handlers.getAllClientsHandler);
 ClientRouter.get("/sorted", handlers.getAllClientsSortedHandler);
 ClientRouter.get("/:id", handlers.getIDClientHandler);
 ClientRouter.delete("/:id", handlers.deleteClientHandler);
-ClientRouter.post("/", handlers.postClientHandler);
+ClientRouter.post("/",middlewares.ClientValidations, handlers.postClientHandler);
 ClientRouter.put("/:id", handlers.putClientHandler);
 ClientRouter.patch("/:id", handlers.patchClientHandler);
 ClientRouter.post("/authenticate", handlers.authenticationClientHandler); 
