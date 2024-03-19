@@ -4,6 +4,7 @@ const { patchClientHandler } = require("./patchClientHandler");
 const { getAllClientsHandler } = require("./getAllClientsHandler");
 const { getIDClientHandler } = require("./getIDClientHandler");
 const { getAllClientsSortedHandler } = require("./getAllClientsSortedHandler");
+const { getAllClientsPageHandler } = require("./getAllClientsPageHandler");
 const { deleteClientHandler } = require("./deleteClientHandler");
 const { authenticationClientHandler } = require("./authClientHandler");
 const { validatePassClientHandler } = require("./validatePassClientHandler");
@@ -14,7 +15,8 @@ module.exports = {
     patchClientHandler,
     getAllClientsHandler, 
     getIDClientHandler,
-    getAllClientsSortedHandler, 
+    getAllClientsSortedHandler,
+    getAllClientsPageHandler, 
     deleteClientHandler, 
     authenticationClientHandler, 
     validatePassClientHandler 

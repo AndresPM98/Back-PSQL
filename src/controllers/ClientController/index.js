@@ -3,6 +3,7 @@ const { deleteClientController } = require("./deleteClient");
 const { getIdClientController } = require("./getIdClient");
 const { getAllClientsController } = require("./getAllClients");
 const { getAllClientsSortedController } = require("./getAllClientsSorted");
+const { getAllClientsPageController } = require("./getAllClientsPage");
 const { putClientController } = require("./putClient");
 const { patchClientController } = require("./patchClient");
 const { authenticationClientController } = require("./authClient");
@@ -14,6 +15,7 @@ module.exports = {
     getIdClientController, 
     getAllClientsController, 
     getAllClientsSortedController,
+    getAllClientsPageController,
     putClientController,
     patchClientController, 
     authenticationClientController, 

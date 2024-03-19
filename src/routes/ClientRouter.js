@@ -6,6 +6,7 @@ const ClientRouter = Router();
 
 ClientRouter.get("/", handlers.getAllClientsHandler);
 ClientRouter.get("/sorted", handlers.getAllClientsSortedHandler);
+ClientRouter.get("/paginated", handlers.getAllClientsPageHandler)
 ClientRouter.get("/:id", handlers.getIDClientHandler);
 ClientRouter.delete("/:id", handlers.deleteClientHandler);
 ClientRouter.post("/",middlewares.ClientValidations, handlers.postClientHandler);
